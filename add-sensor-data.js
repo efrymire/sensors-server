@@ -11,7 +11,7 @@ var device_url = 'https://api.particle.io/v1/devices/' + device_id + '/' + parti
 var db_credentials = new Object();
 db_credentials.user = 'ellie';
 db_credentials.host = process.env.AWSRDS_EP;
-db_credentials.database = 'sensors';
+db_credentials.database = 'sensorData';
 db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
 
