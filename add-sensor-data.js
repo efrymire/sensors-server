@@ -2,10 +2,8 @@ var request = require('request');
 const { Client } = require('pg');
 
 // PARTICLE PHOTON
-var device_id = process.env.PHOTON_ID;
 var access_token = process.env.PHOTON_TOKEN;
-var particle_variable = 'fototemp';
-var device_url = 'https://api.particle.io/v1/devices/' + device_id + '/' + particle_variable + '?access_token=' + access_token;
+var device_url = 'https://api.particle.io/v1/devices/events?access_token=' + access_token;
 
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
@@ -28,7 +26,7 @@ var getAndWriteData = function() {
         client.connect();
 
         // Construct a SQL statement to insert sensor values into a table
-        var thisQuery = "INSERT INTO sensordata VALUES (" + ir + "," + tempC + ", DEFAULT);";
+        var thisQuery = "INSERT INTO sensorData VALUES (" + ir + "," + tempC + ", DEFAULT);";
         console.log(thisQuery); // for debugging
 
         // Connect to the AWS RDS Postgres database and insert a new row of sensor values
