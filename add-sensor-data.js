@@ -2,8 +2,10 @@ var request = require('request');
 const { Client } = require('pg');
 
 // PARTICLE PHOTON
+var device_id = process.env.PHOTON_ID;
 var access_token = process.env.PHOTON_TOKEN;
-var device_url = 'https://api.particle.io/v1/devices/events?access_token=' + access_token;
+var particle_variable = 'json';
+var device_url = 'https://api.particle.io/v1/devices/' + device_id + '/' + particle_variable + '?access_token=' + access_token;
 
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
