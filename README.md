@@ -58,7 +58,7 @@ var getAndWriteData = function() {
 setInterval(getAndWriteData, 50000);
 ```
 
-Once I set the environment variables, I was recieving this error through pm2: 
+Once I set the environment variables, I was recieving this error through pm2 log: 
 
 ```js
 0|add-sens | SyntaxError: Unexpected token u in JSON at position 0
