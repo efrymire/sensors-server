@@ -13,7 +13,7 @@ console.log(device_url)
 var db_credentials = new Object();
 db_credentials.user = 'ellie';
 db_credentials.host = 'datastructures.cvnlstce0av9.us-east-2.rds.amazonaws.com';
-db_credentials.database = 'sensordata';
+db_credentials.database = 'sensors';
 db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
 
@@ -25,6 +25,10 @@ var getAndWriteData = function() {
         var ir = JSON.parse(device_json_string).ir;
         var tempC = JSON.parse(device_json_string).temp;
 
+        console.log(device_json_string);
+        console.log(ir);
+        console.log(tempC);
+        
         // Connect to the AWS RDS Postgres database
         const client = new Client(db_credentials);
         client.connect();
