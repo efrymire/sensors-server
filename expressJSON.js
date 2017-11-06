@@ -4,8 +4,8 @@ const { Pool } = require('pg');
 
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
-db_credentials.user = 'aaron';
-db_credentials.host = process.env.AWSRDS_EP;
+db_credentials.user = 'ellie';
+db_credentials.host = 'datastructures.cvnlstce0av9.us-east-2.rds.amazonaws.com';
 db_credentials.database = 'sensors';
 db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
