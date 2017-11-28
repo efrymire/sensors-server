@@ -1,0 +1,288 @@
+[
+    {
+        "_id": "5a1a1d59172afe4c48b5ed9c",
+        "groupName": "A NEW WAY OF LIVING - A New Way Of Living",
+        "address": "701 West 168th Street @ Fort Washington Avenue",
+        "lat": 40.84213949999999,
+        "long": -73.9422811,
+        "notes": "Check with Security for Room # T Last Thu, Living Sober & Anniv Last Fri. No meetings on public holidays",
+        "wheelchair": "Wheelchair available",
+        "meetings": [
+            {
+                "day": "Thursday",
+                "startH": 24,
+                "startM": 0,
+                "start": "24:0",
+                "endH": 13,
+                "endM": 0,
+                "end": "13:0",
+                "type": "Step meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Friday",
+                "startH": 24,
+                "startM": 0,
+                "start": "24:0",
+                "endH": 13,
+                "endM": 0,
+                "end": "13:0",
+                "type": "Closed Discussion meeting",
+                "interest": "Living Sober"
+            },
+            {
+                "day": "Monday",
+                "startH": 24,
+                "startM": 0,
+                "start": "24:0",
+                "endH": 13,
+                "endM": 0,
+                "end": "13:0",
+                "type": "Big Book meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Tuesday",
+                "startH": 24,
+                "startM": 0,
+                "start": "24:0",
+                "endH": 13,
+                "endM": 0,
+                "end": "13:0",
+                "type": "Beginners meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Wednesday",
+                "startH": 24,
+                "startM": 0,
+                "start": "24:0",
+                "endH": 13,
+                "endM": 0,
+                "end": "13:0",
+                "type": "Closed Discussion meeting",
+                "interest": "No Special Interest"
+            }
+        ]
+    },
+    {
+        "_id": "5a1a1d59172afe4c48b5eda2",
+        "groupName": "35 Thayer Street, Basement, ",
+        "address": "35 Thayer Street Basement",
+        "lat": 40.8626118,
+        "long": -73.92621030000001,
+        "notes": "Wheelchair access",
+        "wheelchair": "Wheelchair available",
+        "meetings": [
+            {
+                "day": "Sunday",
+                "startH": 17,
+                "startM": 0,
+                "start": "17:0",
+                "endH": 19,
+                "endM": 0,
+                "end": "19:0",
+                "type": "Open meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Tuesday",
+                "startH": 20,
+                "startM": 0,
+                "start": "20:0",
+                "endH": 22,
+                "endM": 0,
+                "end": "22:0",
+                "type": "Open meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Thursday",
+                "startH": 20,
+                "startM": 0,
+                "start": "20:0",
+                "endH": 22,
+                "endM": 0,
+                "end": "22:0",
+                "type": "Open meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Saturday",
+                "startH": 20,
+                "startM": 0,
+                "start": "20:0",
+                "endH": 22,
+                "endM": 0,
+                "end": "22:0",
+                "type": "Open meeting",
+                "interest": "No Special Interest"
+            }
+        ]
+    },
+    {
+        "_id": "5a1a1d59172afe4c48b5eda3",
+        "groupName": "GRUPO LIBERTAD - Grupo Libertad",
+        "address": "715 West 179th Street 1st Floor NY 10033",
+        "lat": 40.849431,
+        "long": -73.93840399999999,
+        "notes": "Spanish speaking meetings. ",
+        "wheelchair": "Wheelchair available",
+        "meetings": [
+            {
+                "day": "Tuesday",
+                "startH": 19,
+                "startM": 30,
+                "start": "19:30",
+                "endH": 20,
+                "endM": 30,
+                "end": "20:30",
+                "type": "Big Book meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Thursday",
+                "startH": 19,
+                "startM": 30,
+                "start": "19:30",
+                "endH": 20,
+                "endM": 30,
+                "end": "20:30",
+                "type": "Big Book meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Thursday",
+                "startH": 21,
+                "startM": 30,
+                "start": "21:30",
+                "endH": 10,
+                "endM": 30,
+                "end": "10:30",
+                "type": "Closed Discussion meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Tuesday",
+                "startH": 21,
+                "startM": 30,
+                "start": "21:30",
+                "endH": 22,
+                "endM": 30,
+                "end": "22:30",
+                "type": "Closed Discussion meeting",
+                "interest": "No Special Interest"
+            }
+        ]
+    },
+    {
+        "_id": "5a1a1d59172afe4c48b5eda4",
+        "groupName": "GRUPO RECUPERACION - Grupo Recuperacion",
+        "address": "502 West165th Street Basement",
+        "lat": 40.8380556,
+        "long": -73.93891789999999,
+        "notes": "Spanish speaking meetings.",
+        "wheelchair": "Wheelchair unavailable",
+        "meetings": [
+            {
+                "day": "Sunday",
+                "startH": 14,
+                "startM": 30,
+                "start": "14:30",
+                "endH": 15,
+                "endM": 30,
+                "end": "15:30",
+                "type": "Open meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Tuesday",
+                "startH": 20,
+                "startM": 0,
+                "start": "20:0",
+                "endH": 21,
+                "endM": 0,
+                "end": "21:0",
+                "type": "Closed Discussion meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Thursday",
+                "startH": 20,
+                "startM": 0,
+                "start": "20:0",
+                "endH": 21,
+                "endM": 0,
+                "end": "21:0",
+                "type": "Open meeting",
+                "interest": "No Special Interest"
+            }
+        ]
+    },
+    {
+        "_id": "5a1a1d59172afe4c48b5eda7",
+        "groupName": "INWOOD FORT TRYON - Inwood-Ft. Tryon",
+        "address": "84 Vermilyea Avenue",
+        "lat": 40.8660417,
+        "long": -73.9232711,
+        "notes": "Sat. Closed meeting rotating step/speaker/trad/anniversary In Dec. first two weeks will be Step meeting",
+        "wheelchair": "Wheelchair unavailable",
+        "meetings": [
+            {
+                "day": "Saturday",
+                "startH": 11,
+                "startM": 0,
+                "start": "11:0",
+                "endH": 24,
+                "endM": 0,
+                "end": "24:0",
+                "type": "Beginners meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Saturday",
+                "startH": 11,
+                "startM": 0,
+                "start": "11:0",
+                "endH": 24,
+                "endM": 0,
+                "end": "24:0",
+                "type": "Closed Discussion meeting",
+                "interest": "No Special Interest"
+            },
+            {
+                "day": "Tuesday",
+                "startH": 24,
+                "startM": 30,
+                "start": "24:30",
+                "endH": 13,
+                "endM": 30,
+                "end": "13:30",
+                "type": "Closed Discussion meeting",
+                "interest": "No Special Interest"
+            }
+        ]
+    },
+    {
+        "_id": "5a1a1d59172afe4c48b5edae",
+        "groupName": "WASHINGTON HEIGHTS                  (:I) - Washington Heights    (:I)",
+        "address": "715 West 179th Street",
+        "lat": 40.8664722,
+        "long": -73.926452,
+        "notes": "Wheelchair access",
+        "wheelchair": "Wheelchair available",
+        "meetings": [
+            {
+                "day": "Tuesday",
+                "startH": 19,
+                "startM": 30,
+                "start": "19:30",
+                "endH": 20,
+                "endM": 30,
+                "end": "20:30",
+                "type": "Open meeting",
+                "interest": "No Special Interest"
+            }
+        ]
+    }
+]
