@@ -12,8 +12,10 @@ var fs = require('fs');
 // db_credentials.port = 5432;
 
 // Mongo
+// var dbName = 'aa_group_meetings'
 var collName = 'meetings';
 var MongoClient = require('mongodb').MongoClient;
+// var url = 'mongodb://' + process.env.IP + ':27017/' + dbName;
 var url = process.env.ATLAS;
 
 // HTML wrappers for AA data
@@ -23,18 +25,18 @@ var index3 = fs.readFileSync("index3.txt");
 // app.get('/', function(req, res) {
 //     // Connect to the AWS RDS Postgres database
 //     const client = new Pool(db_credentials);
-
+//
 //     // SQL query
-//     var q = `SELECT EXTRACT(DAY FROM sensortime AT TIME ZONE 'America/New_York') as sensorday, 
-//              EXTRACT(MONTH FROM sensortime AT TIME ZONE 'America/New_York') as sensormonth, 
-//              count(*) as num_obs, 
-//              max(lightsensor) as max_light, 
+//     var q = `SELECT EXTRACT(DAY FROM sensortime AT TIME ZONE 'America/New_York') as sensorday,
+//              EXTRACT(MONTH FROM sensortime AT TIME ZONE 'America/New_York') as sensormonth,
+//              count(*) as num_obs,
+//              max(lightsensor) as max_light,
 //              min(lightsensor) as min_light,
-//              max(tempsensor) as max_temp, 
+//              max(tempsensor) as max_temp,
 //              min(tempsensor) as min_temp
-//              FROM sensordata 
+//              FROM sensordata
 //              GROUP BY sensormonth, sensorday;`;
-
+//
 //     client.connect();
 //     client.query(q, (qerr, qres) => {
 //         res.send(qres.rows);
@@ -58,39 +60,38 @@ app.get('/aa', function(req, res) {
         var collection = db.collection(collName);
 
         collection.aggregate([ // start of aggregation pipeline
-            // match by day and time
-            {
-                $match: {
-                    $or: [{
-                            $and: [
-                                { dayQuery: 2 }, { hourQuery: { $gte: 19 } }
-                            ]
-                        },
-                        {
-                            $and: [
-                                { dayQuery: 3 }, { hourQuery: { $lte: 4 } }
-                            ]
-                        }
-                    ]
-                }
-            },
+            // // match by day and time
+
+            { $unwind: "$meetings" },
+
+            //     $match: {
+                    // $or: [{
+                    //         $and: [
+                    //             { day: 2 }, { hourQuery: { $gte: 19 } }
+                    //         ]
+                    //     },
+                    //     {
+                    //         $and: [
+                    //             { dayQuery: 3 }, { hourQuery: { $lte: 4 } }
+                    //         ]
+                    //     }
+                    // ]
+                // }
+            // },
 
             // group by meeting group
             {
                 $group: {
                     _id: {
-                        lat: "$lat",
-                        long: "$long",
+                        latLong: "$latLong",
                         meetingName: "$groupName",
                         meetingAddress1: "$address",
-                        // meetingAddress2: "$meetingAddress2",
-                        // borough: "$borough",
                         meetingDetails: "$meetings",
-                        meetingWheelchair: "$wheelchair",
+                        meetingWheelchair: "$wheelchair"
                     },
-                    meetingDay: { $push: "$day" },
-                    meetingStartTime: { $push: "$start" },
-                    meetingType: { $push: "$type" }
+                    meetingDay: { $push: "$meetings.day" },
+                    meetingStartTime: { $push: "$meetings.start" },
+                    meetingType: { $push: "$meetings.type" }
                 }
             },
 
@@ -98,9 +99,9 @@ app.get('/aa', function(req, res) {
             {
                 $group: {
                     _id: {
-                        latLong: "$_id.lat"
+                        latLong: "$_id.latLong"
                     },
-                    meetingGroups: { $push: { groupInfo: "$_id", meetingDay: "$day", meetingStartTime: "$start", meetingType: "$type" } }
+                    meetingGroups : { $push : {groupInfo : "$_id", meetingDay : "$meetingDay", meetingStartTime : "$meetingStartTime", meetingType : "$meetingType" }}
                 }
             }
 
