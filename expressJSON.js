@@ -19,7 +19,6 @@ app.get('/', function(req, res) {
              EXTRACT(DAY FROM sensortime AT TIME ZONE 'America/New_York') as sensorday, 
              EXTRACT(MONTH FROM sensortime AT TIME ZONE 'America/New_York') as sensormonth, 
              count(*) as num_obs, 
-             sum(irsensor) as ir_count,
              max(tempsensor) as max_temp, 
              min(tempsensor) as min_temp
              FROM sensordata 
