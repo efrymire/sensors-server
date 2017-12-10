@@ -84,10 +84,12 @@ app.get('/aa', function(req, res) {
                 $group: {
                     _id: {
                         latLong: "$latLong",
+                        locationName: '$locationName',
                         meetingName: "$groupName",
-                        meetingAddress1: "$address",
-                        meetingDetails: "$meetings",
-                        meetingWheelchair: "$wheelchair"
+                        meetingAddress1: "$address1",
+                        meetingAddress2: "$address2",
+                        meetingWheelchair: "$wheelchair",
+                        meetingDetails: "$meetings"
                     },
                     meetingDay: { $push: "$meetings.day" },
                     meetingStartTime: { $push: "$meetings.start" },
