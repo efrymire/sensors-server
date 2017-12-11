@@ -2,60 +2,40 @@ var express = require('express'),
     app = express();
 var fs = require('fs');
 
-// Postgres
-// const { Pool } = require('pg');
-// var db_credentials = new Object();
-// db_credentials.user = 'ellie';
-// db_credentials.host = process.env.AWSRDS_EP;
-// db_credentials.database = 'sensors';
-// db_credentials.password = process.env.AWSRDS_PW;
-// db_credentials.port = 5432;
-
 // Mongo
-// var dbName = 'aa_group_meetings'
+
 var collName = 'meetings';
 var MongoClient = require('mongodb').MongoClient;
-// var url = 'mongodb://' + process.env.IP + ':27017/' + dbName;
 var url = process.env.ATLAS;
 
 // HTML wrappers for AA data
 var index1 = fs.readFileSync("index1.txt");
 var index3 = fs.readFileSync("index3.txt");
 
-// app.get('/', function(req, res) {
-//     // Connect to the AWS RDS Postgres database
-//     const client = new Pool(db_credentials);
-//
-//     // SQL query
-//     var q = `SELECT EXTRACT(DAY FROM sensortime AT TIME ZONE 'America/New_York') as sensorday,
-//              EXTRACT(MONTH FROM sensortime AT TIME ZONE 'America/New_York') as sensormonth,
-//              count(*) as num_obs,
-//              max(lightsensor) as max_light,
-//              min(lightsensor) as min_light,
-//              max(tempsensor) as max_temp,
-//              min(tempsensor) as min_temp
-//              FROM sensordata
-//              GROUP BY sensormonth, sensorday;`;
-//
-//     client.connect();
-//     client.query(q, (qerr, qres) => {
-//         res.send(qres.rows);
-//         console.log('responded to request');
-//     });
-//     client.end();
-// });
 
 app.get('/aa', function(req, res) {
 
     MongoClient.connect(url, function(err, db) {
         if (err) { return console.dir(err); }
 
+        var weekArray =
+            ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
         var dateTimeNow = new Date();
         var today = dateTimeNow.getDay();
-        var tomorrow;
-            if (today == 6) { tomorrow = 0; }
-            else { tomorrow = today + 1 }
+
+        // var tomorrow;
+        //     if (today == 6) { tomorrow = 0; }
+        //     else { tomorrow = today + 1 }
+
         var hour = dateTimeNow.getHours();
+
+        var todayMatch = weekArray[today];
+
+        // var tomorrowMatch = weekArray[tomorrow];
+
+        console.log(todayMatch)
+        // console.log(tomorrowMatch)
 
         var collection = db.collection(collName);
 
@@ -64,20 +44,12 @@ app.get('/aa', function(req, res) {
 
             { $unwind: "$meetings" },
 
-            //     $match: {
-                    // $or: [{
-                    //         $and: [
-                    //             { day: 2 }, { hourQuery: { $gte: 19 } }
-                    //         ]
-                    //     },
-                    //     {
-                    //         $and: [
-                    //             { dayQuery: 3 }, { hourQuery: { $lte: 4 } }
-                    //         ]
-                    //     }
-                    // ]
-                // }
-            // },
+            { $match :
+
+                { $and: [
+                        { "meetings.day" : todayMatch } , { "meetings.startH" : { $gte: hour } }
+                    ]}
+        },
 
             // group by meeting group
             {
@@ -89,6 +61,7 @@ app.get('/aa', function(req, res) {
                         meetingAddress1: "$address1",
                         meetingAddress2: "$address2",
                         meetingWheelchair: "$wheelchair",
+                        locationNotes: "$notes",
                         meetingDetails: "$meetings"
                     },
                     meetingDay: { $push: "$meetings.day" },
@@ -123,6 +96,6 @@ app.get('/aa', function(req, res) {
 });
 
 // app.listen(process.env.PORT, function() {
-app.listen(3000, function() {
+app.listen(4000, function() {
     console.log('Server listening...');
 });

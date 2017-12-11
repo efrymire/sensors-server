@@ -7,7 +7,7 @@
             for (var i = 0; i < cont.meetingGroups.length; i++) {
                 if (i == 0) {
                     contentHolder = contentHolder + '<h2>' + cont.meetingGroups[i].groupInfo.locationName + '</h2>';
-                    contentHolder = contentHolder + '<p>' + cont.meetingGroups[i].groupInfo.meetingAddress1 + '<br>' + cont.meetingGroups[i].groupInfo.meetingAddress2 + '</p>';
+                    contentHolder = contentHolder + '<p>' + cont.meetingGroups[i].groupInfo.meetingAddress1 + '<br>' + cont.meetingGroups[i].groupInfo.meetingAddress2 + '<br>' + cont.meetingGroups[i].groupInfo.meetingWheelchair + '<br> <br> Notes:' + cont.meetingGroups[i].groupInfo.locationNotes + '</p>';
                 }
                 contentHolder = contentHolder + '<h1 id="firstHeading" class="firstHeading">';
                 contentHolder = contentHolder + cont.meetingGroups[i].groupInfo.meetingName + '</h1>';
