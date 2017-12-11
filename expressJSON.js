@@ -15,14 +15,14 @@ app.get('/', function(req, res) {
     const client = new Pool(db_credentials);
 
     // SQL query
-    var q = `SELECT EXTRACT(HOUR FROM sensortime) as sensorhour,
-             EXTRACT(DAY FROM sensortime AT TIME ZONE 'America/New_York') as sensorday, 
-             EXTRACT(MONTH FROM sensortime AT TIME ZONE 'America/New_York') as sensormonth, 
-             count(*) as num_obs, 
-             max(tempsensor) as max_temp, 
-             min(tempsensor) as min_temp
+    var q = `SELECT EXTRACT(MINUTE FROM sensortime) as sensorminute,
+             EXTRACT(HOUR FROM sensortime) as sensorhour,
+             EXTRACT(DAY FROM sensortime AT TIME ZONE 'America/New_York') as sensorday,
+             EXTRACT(MONTH FROM sensortime AT TIME ZONE 'America/New_York') as sensormonth,
+             count(*) as num_obs,
+             avg(tempsensor) as avg_temp
              FROM sensordata 
-             GROUP BY sensormonth, sensorday, sensorhour;`;
+             GROUP BY sensormonth, sensorday, sensorhour, sensorminute;`;
              
     client.connect();
     client.query(q, (qerr, qres) => {
